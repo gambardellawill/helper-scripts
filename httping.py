@@ -1,6 +1,9 @@
+#!/usr/bin/python3
+
 # -*- coding: utf-8 -*-
 
 import time
+import datetime
 import requests
 import argparse
 
@@ -13,7 +16,7 @@ parser.add_argument("host", type=str)
 
 def httping(host):
     response = requests.get(host)
-    print("{}: got {} and took {} seconds to complete.".format(host, response.status_code, response.elapsed))
+    print("{}: got {} and took {} ms to complete.".format(host, response.status_code, response.elapsed.microseconds / 1000))
 
 
 if __name__ == "__main__":
