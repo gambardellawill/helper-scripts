@@ -1,0 +1,6 @@
+#!/usr/bin/zsh
+
+USER=$1
+
+grep -A2 -B2 $USER /var/log/apt/history.log | grep "apt install" | awk '{for(i=4;i<=NF;++i)print $i}' | awk ' !/^-/ {print $0}'
+zgrep -A2 -B2 $USER /var/log/apt/history.log.*.gz | grep "apt install" | awk '{for(i=4;i<=NF;++i)print $i}' | awk ' !/^-/ {print $0}'
