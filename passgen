@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+
+PASSWORD=`openssl rand -base64 16 | tr -dc _A-Z_a-z_0-9`
+
+echo -e "username,password\n$1,$PASSWORD" > $2
